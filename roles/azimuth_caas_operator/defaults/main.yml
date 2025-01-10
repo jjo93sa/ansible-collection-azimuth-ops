@@ -1,8 +1,8 @@
 ---
 # The chart to use
-azimuth_caas_operator_chart_repo: https://azimuth-cloud.github.io/azimuth-caas-operator
+azimuth_caas_operator_chart_repo: https://github.com/jjo93sa/azimuth-caas-operator
 azimuth_caas_operator_chart_name: azimuth-caas-operator
-azimuth_caas_operator_chart_version: 0.17.1
+azimuth_caas_operator_chart_version: 0.17.2
 
 # Release information for the operator release
 # Use the same namespace as Azimuth by default
@@ -89,7 +89,6 @@ azimuth_caas_operator_default_ssh_secret_namespace: azimuth
 # That will then inject the public key as an extra var:
 #   cluster_deploy_ssh_public_key: <public key>
 azimuth_caas_operator_default_ssh_secret_files: {}
-
 
 #####
 # Appliance configuration
@@ -193,7 +192,6 @@ azimuth_caas_stackhpc_slurm_appliance_template:
     envVars:
       # Normally set through environment's activate script:
       ANSIBLE_INVENTORY: environments/common/inventory,environments/.caas/inventory # NB: Relative to runner project dir
-
 
 # Indicates if the workstation should be enabled
 azimuth_caas_workstation_enabled: >-
@@ -395,7 +393,6 @@ azimuth_caas_workstation_ssh_template:
     jobTimeout: "{{ azimuth_caas_workstation_job_timeout_seconds }}"
     extraVars: "{{ azimuth_caas_workstation_ssh_extra_vars }}"
 
-
 # Indicates if the repo2docker appliance should be enabled
 azimuth_caas_repo2docker_enabled: >-
   {{ azimuth_caas_stackhpc_repo2docker_enabled | default(azimuth_clusters_enabled) }}
@@ -517,7 +514,6 @@ azimuth_caas_repo2docker_template:
     jobTimeout: "{{ azimuth_caas_repo2docker_job_timeout_seconds }}"
     extraVars: "{{ azimuth_caas_repo2docker_extra_vars }}"
 
-
 # Indicates if the R-Studio appliance should be enabled
 azimuth_caas_rstudio_enabled: >-
   {{ azimuth_caas_stackhpc_rstudio_enabled | default(azimuth_clusters_enabled) }}
@@ -638,7 +634,6 @@ azimuth_caas_rstudio_template:
     playbook: "{{ azimuth_caas_rstudio_playbook }}"
     jobTimeout: "{{ azimuth_caas_rstudio_job_timeout_seconds }}"
     extraVars: "{{ azimuth_caas_rstudio_extra_vars }}"
-
 
 azimuth_caas_cluster_templates_default: >-
   {{-
